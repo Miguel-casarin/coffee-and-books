@@ -17,7 +17,9 @@ def execute(connection, sql):
    
     cursor = connection.cursor()  # 10
     cursor.execute(sql)  # 11S
-    cursor.fetchall()
+    results = cursor.fetchall()
+
+    return results
   
 
 conn = conectar()  # 17

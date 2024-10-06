@@ -13,27 +13,22 @@ def conectar():
     print("Conexão bem-sucedida ao banco de dados!")  # 8
     return conn  # 9  (Corrigido para retornar a variável conn)
 
-def execute_sql(connection, sql):
-    """Executa um comando SQL no banco de dados."""
+def execute(connection, sql):
+   
     cursor = connection.cursor()  # 10
-    cursor.execute(sql)  # 11
-    if sql.strip().upper().startswith("SELECT"):  # 12
-        results = cursor.fetchall()  # 13
-        return results  # 14
-    else:
-        connection.commit()  # 15
-        return None  # 16
+    cursor.execute(sql)  # 11S
+    cursor.fetchall()
+  
 
-# Estabelece a conexão
 conn = conectar()  # 17
 
 # Comando SQL corrigido
 select_livros = "SELECT * FROM livros;"  # 18 (Corrigido para duas aspas)
 
 # Executa a consulta e imprime os resultados
-livros = execute_sql(conn, select_livros)  # 19
-for livro in livros:  # 20
-    print(livro)  # 21
+livros = execute(conn, select_livros)  # 19
+for i in livros:  # 20
+    print(i)  # 21
 
 # Fecha a conexão
 conn.close()  # 22

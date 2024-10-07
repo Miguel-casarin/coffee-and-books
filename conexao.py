@@ -12,4 +12,3 @@ def conectar():
     )
     #print("Conexão bem-sucedida ao banco de dados!")  # 8
     return conn  # 9  (Corrigido para retornar a variável conn)
-

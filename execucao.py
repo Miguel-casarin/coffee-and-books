@@ -21,5 +21,15 @@ def editoras():
     conn.close()
     return[editora[0] for editora in editoras]
 
-def busca():
-    busca = ""
+def catalogo():
+    conn = conectar()
+    select_catalogo = """
+    SELECT L.TITULO, E.EDITORA, LE.PRECO 
+    FROM LIVROS L
+    INNER JOIN LIVROS_EDITORAS LE ON L.ID = LE.LIVRO_ID
+    INNER JOIN EDITORAS E ON LE.EDITORA_ID = E.ID;
+    """
+    catalogos = execute(conn, select_catalogo)
+    conn.close()
+    return [{"titulo": dado[0], "editora": dado[1], "preco": dado[2]} for dado in catalogos]
+    

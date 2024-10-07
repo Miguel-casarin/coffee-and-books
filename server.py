@@ -1,4 +1,4 @@
-from execucao import listagem, editoras
+from execucao import listagem, editoras, catalogo
 
 
 from flask import Flask, make_response, jsonify
@@ -16,5 +16,10 @@ def get_livros():
 def get_editoras():
     edi = editoras()
     return make_response(jsonify(edi)) 
+
+@app.route('/catalogos', methods=['GET'])
+def get_catalogo():
+    cat = catalogo()
+    return make_response(jsonify(cat)) 
 
 app.run()

@@ -14,5 +14,8 @@ def listagem():
     conn.close()  # Fecha a conexão após a consulta
     return [livro[0] for livro in livros]  # Retorna uma lista com os títulos dos livros
 
+def valores():
+    pass
+
 def busca():
     busca = ""

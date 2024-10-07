@@ -14,8 +14,12 @@ def listagem():
     conn.close()  # Fecha a conexão após a consulta
     return [livro[0] for livro in livros]  # Retorna uma lista com os títulos dos livros
 
-def valores():
-    pass
+def editoras():
+    conn = conectar()
+    select_editoras = "SELECT EDITORA FROM EDITORAS;"
+    editoras = execute(conn, select_editoras)
+    conn.close()
+    return[editora[0] for editora in editoras]
 
 def busca():
     busca = ""
